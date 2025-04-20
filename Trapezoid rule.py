@@ -3,16 +3,16 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Step 1: Define the function to integrate
-def f(x):
+
+def f(x): #Define the function to integrate
     return x**2  #Changeable function
 
-# Step 2: Input integration limits and number of subintervals
+#Input integration limits and number of subintervals
 a = 0      # start of interval
 b = 5      # end of interval
 n = 10     # number of subintervals
 
-# Step 3: Implement the Trapezoidal Rule function
+#Implement the Trapezoidal Rule function
 def trapezoidal_rule(f,a,b,n):
     h = (b - a)/n
     x = np.linspace(a,b,n+1)
@@ -20,11 +20,11 @@ def trapezoidal_rule(f,a,b,n):
     area = h * (0.5 * y[0] + np.sum(y[1:-1]) + 0.5 * y[-1])
     return area, x, y
 
-# Step 4 & 5: Compute approximation
+#Compute approximation
 area, x_vals, y_vals = trapezoidal_rule(f, a, b, n)
 print(f"Approximate integral using Trapezoidal Rule: {area}")
 
-# Step 6: Plot the function and trapezoids
+#Plot the function and trapezoids
 plt.figure(figsize=(8, 5))
 x_fine = np.linspace(a, b, 1000)
 plt.plot(x_fine, f(x_fine), 'r', label='f(x)')
